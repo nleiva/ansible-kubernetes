@@ -1,0 +1,19 @@
+# Play 1: Create EKS cluster
+- name: Create EC2 instance
+  hosts: localhost
+  become: false
+  gather_facts: true
+  vars_files:
+    - ./vars/common.yml
+
+  roles:
+      - { role: check_vars }
+      - { role: install_dependencies }
+
+  tasks:
+    - name: Include Cloud variables
+      include_vars: "./vars/aws.yml"
+
+    - name: Create EKS cluster in AWS
+      ansible.builtin.include_role:
+        name: aws_create_eks

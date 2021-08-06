@@ -1,0 +1,25 @@
+- name: Create Subnet 1
+  amazon.aws.ec2_vpc_subnet:
+    region: "{{ aws_region }}"
+    vpc_id: "{{ create_vpc.vpc.id }}"
+    cidr: "{{ ec2_subnet_1 }}"
+    az: "{{ aws_region }}a"
+    tags:
+      Environment: "{{ ec2_environment }}"
+      Name: "{{ ec2_resource_prefix }}-subnet-1"
+  register: create_subnet_1
+  until: create_subnet_1 is not failed
+  retries: 5
+
+- name: Create Subnet 2
+  amazon.aws.ec2_vpc_subnet:
+    region: "{{ aws_region }}"
+    vpc_id: "{{ create_vpc.vpc.id }}"
+    cidr: "{{ ec2_subnet_2 }}"
+    az: "{{ aws_region }}b"
+    tags:
+      Environment: "{{ ec2_environment }}"
+      Name: "{{ ec2_resource_prefix }}-subnet-2"
+  register: create_subnet_2
+  until: create_subnet_2 is not failed
+  retries: 5

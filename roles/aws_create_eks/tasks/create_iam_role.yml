@@ -1,0 +1,7 @@
+- name: Create an IAM role with the IAM policy AmazonEKSClusterPolicy
+  community.aws.iam_role:
+     name: "{{ ec2_resource_prefix }}-role"
+     assume_role_policy_document: "{{ lookup('file','eks_policy.json') }}"
+     managed_policy:
+     - 'arn:aws:iam::aws:policy/AmazonEKSClusterPolicy'
+  register: eks_role
