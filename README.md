@@ -1,7 +1,7 @@
 # Provisioning AKS, EKS, and GKE with Ansible
 
 <p align="center">
-<img src="./pictures/k8s_ansible.png">
+<img height="400" src="./pictures/k8s_ansible.png">
 </p>
 
 ## Requirements
