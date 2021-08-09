@@ -3,6 +3,7 @@
 <p align="center">
 <img src="./pictures/k8s_ansible.png">
 </p>
+
 ## Requirements
 
 Ansible 2.9+ needs to be [installed](https://docs.ansible.com/ansible/latest/installation_guide/intro_installation.html#installing-ansible-with-pip) in your computer to run this. [Python3](https://wiki.python.org/moin/BeginnersGuide/Download) as well.
