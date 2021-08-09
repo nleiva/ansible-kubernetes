@@ -1,0 +1,1 @@
+supported_clouds: ['aws', 'azure', 'gcp']

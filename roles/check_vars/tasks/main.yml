@@ -1,13 +1,5 @@
-- name: Check AWS_ACCESS_KEY is defined as an environment variable
-  ansible.builtin.fail:
-    msg: "AWS_ACCESS_KEY is not defined. Provide your Key with 'export AWS_ACCESS_KEY=...'"
-  when: check == 'access_key'
-  vars:
-    check: "{{ lookup('env', 'AWS_ACCESS_KEY') | default('access_key', True) }}"
+- name: Check that Linux distribution selected is supported
+  ansible.builtin.assert: { that: "cloud_provider in supported_clouds" }
 
-- name: Check AWS_SECRET_KEY is defined as an environment variable
-  ansible.builtin.fail:
-    msg: "AWS_SECRET_KEY is not defined. Provide your Secret with 'export AWS_SECRET_KEY=...'"
-  when: check == 'secret_key'
-  vars:
-    check: "{{ lookup('env', 'AWS_SECRET_KEY') | default('secret_key', True) }}"
+- name: Include cloud-specific checks
+  ansible.builtin.include_tasks: "{{ cloud_provider }}.yml"

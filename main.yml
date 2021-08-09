@@ -1,0 +1,22 @@
+- name: Create Kubernetes Cluster
+  hosts: localhost
+  connection: local
+  gather_facts: yes
+  vars_files:
+    - ./vars/common.yml
+
+  roles:
+      - { role: check_vars }
+      - { role: install_dependencies }
+
+  tasks:
+    - name: Include cloud variables
+      ansible.builtin.include_vars: "./vars/{{ cloud_provider }}.yml"
+
+    - name: Include SSH Key
+      ansible.builtin.include_vars: "./vars/ssh.yml"
+      when:
+        - cloud_provider == 'azure'
+
+    - name: Include cloud-specific tasks
+      ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}.yml"

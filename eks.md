@@ -7,7 +7,7 @@
 As we will interact with AWS, we need a couple of Python libraries to be present in the system.
 
 ```bash
-pip install --user -r requirements.txt
+pip install --user -r requirements_eks.txt
 ```
 
 ### Ansible Collections
@@ -31,10 +31,10 @@ export AWS_ACCESS_KEY='...'
 export AWS_SECRET_KEY='...'
 ```
 
-3. Run the [Playbook](....yml) and wait a couple of minutes while EKS is being provisioned.
+3. Run the [Playbook](main.ym) and wait a couple of minutes while EKS is being provisioned.
 
 ```bash
- ⇨  ansible-playbook eks.yml -v
+ ⇨  ansible-playbook main.yml -v --extra-vars "cloud_provider=aws"
 
 <snip>
    
@@ -75,5 +75,5 @@ localhost                  : ok=20   changed=5    unreachable=0    failed=0    s
 ## AWS Console view
 
 <p align="center">
-<img src="./pictures/cluster.png">
+<img src="./pictures/cluster_eks.png">
 </p>

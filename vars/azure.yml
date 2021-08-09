@@ -1,0 +1,21 @@
+az_location: 'East US'
+az_prefix: "{{ resource_prefix }}"
+az_resource_group: "{{ az_prefix }}-rg"
+# az_virtual_network: "{{ az_prefix }}-vnet"
+# az_subnet: "{{ az_prefix }}-subnet"
+# az_public_ip: "{{ az_prefix }}-pubip"
+# az_security_group: "{{ az_prefix }}-secgrp"
+# az_virtual_machine: "{{ az_prefix }}-vm"
+# az_network_interface: "{{ az_prefix }}-netint"
+# az_ip_config: "{{ az_prefix }}-ipconf"
+az_vm_size: Standard_D2_v2
+az_vm_username: nleiva
+az_environment: "{{ az_prefix }}"
+az_vm_number: 2
+az_vm_min: 1
+az_vm_max: 3
+# ['1.18.17', '1.18.19', '1.19.9', '1.19.11', '1.20.5', '1.20.7', '1.21.1', '1.21.2']
+az_k8s_version: "{{ my_k8s_version | default('1.20.7') }}"
+
+# az_cidr_block: "172.16.0.0/16"
+# az_subnet_block: "172.16.0.0/24"
