@@ -2,4 +2,4 @@ eks.json
 aks.json
 vars/ssh.yml
 start.sh
-*.pem
+*pem
