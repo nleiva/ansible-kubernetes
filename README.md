@@ -16,9 +16,9 @@ python -m pip install --user ansible
 
 Details on the requirements to create a Kubernetes cluster on each cloud provider are described in the following sub-pages:  
 
-- [AKS](aks.md)(Azure)
-- [EKS](eks.md)(AWS)
-- [GKE](gke.md)(GCP)
+- [AKS](aks.md) (Azure)
+- [EKS](eks.md) (AWS)
+- [GKE](gke.md) (GCP)
 
 **Note**: This is work in progress.
 
