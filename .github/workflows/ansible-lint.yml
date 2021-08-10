@@ -23,13 +23,12 @@ jobs:
       # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
       - uses: actions/checkout@v2
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: echo Hello, world!
-
-      - name: ansible-lint
-        uses: ansible/ansible-lint-action@v4.1.0
+      - name: Lint Ansible Playbook
+        uses: ansible/ansible-lint-action@master
         with:
           targets: "*.yml"
-          # Avoid annoying 'File permissions not mentioned'
+          override-deps: |
+            ansible==2.9
+            ansible-lint==4.2.0
+          # Avoid annoying 'File permissions not mentioned'  
           args: "-x 208"
