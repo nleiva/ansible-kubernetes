@@ -28,6 +28,6 @@ jobs:
         with:
           targets: "*.yml"
           override-deps: |
-            ansible==2.9
+            ansible==2.9.23
           # Avoid annoying 'File permissions not mentioned'  
           args: "-x 208"
