@@ -20,7 +20,7 @@ ansible-galaxy collection install -r collections/requirements.yml
 
 ### Azure credentials
 
-To authenticate via service principal, pass subscription_id, client_id, secret and tenant or set environment variables `AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `AZURE_SECRET` and `AZURE_TENANT`.
+To authenticate via service principal, provide these variables; `subscription_id`, `client_id`, `secret` and `tenant` or set them as environment variables;`AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `AZURE_SECRET` and `AZURE_TENANT`.
 
 - `AZURE_SUBSCRIPTION_ID`: [Find your Azure subscription](https://docs.microsoft.com/en-us/azure/media-services/latest/setup-azure-subscription-how-to?tabs=portal)
 - `AZURE_CLIENT_ID` and `AZURE_TENANT`: [Register an application with Azure AD and create a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal)
@@ -33,7 +33,7 @@ Follow these steps to provision an AKS cluster.
 
 1. Clone this repository: `git clone https://github.com/nleiva/ansible-kubernetes.git`
 
-2. Make your [Azure  service principal parameters](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) (`AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `AZURE_SECRET`, and `AZURE_TENANT`) available as environment variables (`export`).
+2. Make your [Azure service principal parameters](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal) (`AZURE_SUBSCRIPTION_ID`, `AZURE_CLIENT_ID`, `AZURE_SECRET`, and `AZURE_TENANT`) available as environment variables (`export`).
 
 ```bash
 export AZURE_SUBSCRIPTION_ID='...'
@@ -44,7 +44,7 @@ export AZURE_TENANT='...'
 
 3. Run the [Playbook](main.yml) and wait a couple of minutes while AKS is being provisioned.
 
-```bash
+```json
  ⇨  ansible-playbook main.yml -v --extra-vars "cloud_provider=azure"
 
 <snip>

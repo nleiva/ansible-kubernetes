@@ -1,0 +1,3 @@
+- name: Create GKE cluster in GCP
+  ansible.builtin.include_role:
+    name: gcp_create_gke

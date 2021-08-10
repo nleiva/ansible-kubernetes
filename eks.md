@@ -33,7 +33,7 @@ export AWS_SECRET_KEY='...'
 
 3. Run the [Playbook](main.ym) and wait a couple of minutes while EKS is being provisioned.
 
-```bash
+```json
  ⇨  ansible-playbook main.yml -v --extra-vars "cloud_provider=aws"
 
 <snip>

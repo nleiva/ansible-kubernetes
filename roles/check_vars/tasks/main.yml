@@ -1,4 +1,4 @@
-- name: Check that Linux distribution selected is supported
+- name: Check that Cloud Provider selected is supported
   ansible.builtin.assert: { that: "cloud_provider in supported_clouds" }
 
 - name: Include cloud-specific checks

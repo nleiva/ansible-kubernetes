@@ -10,3 +10,6 @@ collections:
   - name: azure.azcollection
     version: 1.7.0
     #source: https://galaxy.ansible.com
+  - name: google.cloud
+    version: 1.0.2
+    #source: https://galaxy.ansible.com

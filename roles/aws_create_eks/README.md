@@ -1,4 +1,4 @@
-AWS Create EC2 
+AWS Create EKS 
 ==============
 
 A brief description of the role goes here.
@@ -30,7 +30,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: localhost
       roles:
-         - { role: aws-testbed.aws_create_ec2 }
+         - { role: ansible-kubernetes.aws_create_eks }
 
 License
 -------

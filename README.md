@@ -1,4 +1,4 @@
-# Provisioning AKS, EKS, and GKE with Ansible
+# Provisioning an AKS, EKS, or GKE cluster with Ansible
 
 <p align="center">
 <img height="400" src="./pictures/k8s_ansible.png">
@@ -16,7 +16,7 @@ python -m pip install --user ansible
 
 - [AKS](aks.md) (work in progress)
 - [EKS](eks.md) (work in progress)
-- [GKE]() (todo)
+- [GKE](gke.md) (work in progress)
 
 ## Creating a new Kubernetes Cluster
 
@@ -24,7 +24,7 @@ Follow these steps to provision a Kubernetes cluster.
 
 1. Clone this repository: `git clone https://github.com/nleiva/ansible-kubernetes.git`
 
-2. Make your cloud provider credentials available as environment variables (`export`). See [AKS](aks.md), [EKS](eks.md), or [GKE]() for more details.
+2. Make your cloud provider credentials available as environment variables (`export`). See [AKS](aks.md), [EKS](eks.md), or [GKE](gke.md) for more details.
 
 ```bash
 export <credential>='...'

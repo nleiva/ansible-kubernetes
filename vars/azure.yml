@@ -8,10 +8,10 @@ az_resource_group: "{{ az_prefix }}-rg"
 # az_virtual_machine: "{{ az_prefix }}-vm"
 # az_network_interface: "{{ az_prefix }}-netint"
 # az_ip_config: "{{ az_prefix }}-ipconf"
-az_vm_size: Standard_D2_v2
+az_vm_size: "{{ my_machine_type | default('Standard_D2_v2') }}"
 az_vm_username: nleiva
 az_environment: "{{ az_prefix }}"
-az_vm_number: 2
+az_vm_number: "{{ node_count }}"
 az_vm_min: 1
 az_vm_max: 3
 # ['1.18.17', '1.18.19', '1.19.9', '1.19.11', '1.20.5', '1.20.7', '1.21.1', '1.21.2']

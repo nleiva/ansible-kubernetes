@@ -2,6 +2,7 @@ cluster_name: "{{ my_cluster_name | default('my-cluster') }}"
 resource_prefix: "{{ my_resource_prefix | default('kubernetes') }}"
 k8s_version: "{{ my_k8s_version | default('1.20') }}"
 cloud_provider: "{{ cloud | default('azure') }}"
+node_count: "{{ my_node_count | default(2) }}"
 k8s_service:
   aws: eks
   azure: aks

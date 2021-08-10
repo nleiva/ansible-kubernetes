@@ -1,0 +1,6 @@
+- name: Create GCP VPC
+  google.cloud.gcp_compute_network:
+    name: "{{ gcp_prefix }}-vpc"
+    auto_create_subnetworks: yes
+    state: present
+  register: create_vpc

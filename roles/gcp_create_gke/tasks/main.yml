@@ -1,0 +1,5 @@
+- name: Create VPC
+  include_tasks: create_vpc.yml
+
+- name: Provision GKE Cluster
+  include_tasks: create_gke.yml

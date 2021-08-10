@@ -1,0 +1,23 @@
+- name: Create GKE cluster
+  google.cloud.gcp_container_cluster:
+    name: "{{ cluster_name }}"
+    initial_node_count: "{{ gcp_node_count }}"
+    location: "{{ gcp_zone }}"
+    network: "{{ create_vpc.name }}"
+    network_policy:
+      enabled: yes
+      provider: "CALICO"
+    state: present
+  register: create_gke
+
+- name: Create k8s node pool
+  google.cloud.gcp_container_node_pool:
+    name: "{{ cluster_name }}-node-pool"
+    initial_node_count: "{{ gcp_node_count }}"
+    location: "{{ gcp_zone }}"
+    cluster: "{{ create_gke }}"
+    config:
+      disk_size_gb: "{{ gcp_disk_size }}"
+      disk_type: "{{ gcp_disk_type }}"
+      machine_type: "{{ gcp_machine_type }}"
+    state: present
