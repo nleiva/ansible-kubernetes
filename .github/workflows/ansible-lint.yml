@@ -1,7 +1,13 @@
 # Ansible Lint for GitHub Action: https://github.com/marketplace/actions/ansible-lint
 name: Ansible Lint
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
 
 jobs:
   build:
