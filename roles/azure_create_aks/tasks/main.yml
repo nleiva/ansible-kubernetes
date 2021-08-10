@@ -1,0 +1,5 @@
+- name: Create Resource Group
+  include_tasks: create_rg.yml
+
+- name: Provision AKS Cluster
+  include_tasks: create_aks.yml

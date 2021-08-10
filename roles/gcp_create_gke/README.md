@@ -6,7 +6,7 @@ A brief description of the role goes here.
 Requirements
 ------------
 
-The requests and google-auth {packages are required](https://docs.ansible.com/ansible/latest/scenario_guides/guide_gce.html#requisites).
+The requests and google-auth [packages are required](https://docs.ansible.com/ansible/latest/scenario_guides/guide_gce.html#requisites).
 
 ```
 pip3 install requests google-auth

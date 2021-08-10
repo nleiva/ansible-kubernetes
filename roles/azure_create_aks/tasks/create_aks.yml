@@ -1,0 +1,25 @@
+- name: Create a managed Azure Container Services (AKS) cluster
+  azure.azcollection.azure_rm_aks:
+    name: "{{ cluster_name }}"
+    location: "{{ az_location }}"
+    resource_group: "{{ az_resource_group }}"
+    dns_prefix: "{{ cluster_name }}"
+    kubernetes_version: "{{ az_k8s_version }}"
+    linux_profile:
+      admin_username: "{{ az_vm_username }}"
+      ssh_key: "{{ ssh_pubkey }}"
+    service_principal:
+      client_id: "{{ lookup('env', 'AZURE_CLIENT_ID') }}"
+      client_secret: "{{ lookup('env', 'AZURE_SECRET') }}"
+    agent_pool_profiles:
+      - name: "{{ az_prefix }}"
+        count: "{{ az_vm_number }}"
+        vm_size: "{{ az_vm_size }}"
+        # AgentPool 'kubernetes' has set auto scaling as enabled 
+        # but is not on Virtual Machine Scale Sets, this is not allowed. 
+        # Please see https://aka.ms/aks-vmss-enablement for more details
+        # max_count: "{{ az_vm_max }}"
+        # min_count: "{{ az_vm_min }}"
+        # enable_auto_scaling: True
+    tags:
+      Environment: "{{ az_environment }}"
