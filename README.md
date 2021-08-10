@@ -1,5 +1,5 @@
 # Provisioning an AKS, EKS, or GKE cluster with Ansible
-![Ansible Lint](https://github.com/nleiva/ansible-kubernetes/workflows/Ansible%20Lint/badge.svg)
+[![Ansible Lint](https://github.com/nleiva/ansible-kubernetes/actions/workflows/ansible-lint.yml/badge.svg)](https://github.com/nleiva/ansible-kubernetes/actions/workflows/ansible-lint.yml)
 
 <p align="center">
 <img height="400" src="./pictures/k8s_ansible.png">
