@@ -3,7 +3,8 @@
     region: "{{ aws_region }}"
     vpc_id: "{{ create_vpc.vpc.id }}"
     subnets:
-      - "{{ create_subnet.subnet.id }}"
+      - "{{ create_subnet_1.subnet.id }}"
+      - "{{ create_subnet_2.subnet.id }}"
     routes:
       - dest: 0.0.0.0/0
         gateway_id: "{{ create_igw.gateway_id }}"

@@ -12,6 +12,17 @@
         to_port: 22
         from_port: 22
         cidr_ip: 0.0.0.0/0
+        rule_desc: SSH
+      - proto: tcp
+        ports:
+          - 443
+        cidr_ip: 0.0.0.0/0
+        rule_desc: HTTPS
+      - proto: tcp
+        ports:
+          - 10250
+        cidr_ip: 0.0.0.0/0
+        rule_desc: kubelet
     rules_egress:
       - proto: all
         cidr_ip: 0.0.0.0/0
