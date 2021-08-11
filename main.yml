@@ -18,5 +18,10 @@
       when:
         - cloud_provider == 'azure'
 
-    - name: Include cloud-specific tasks
-      ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}.yml"
+    - name: Include cloud-specific tasks to create the cluster
+      ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_create.yml"
+      when: not delete
+
+    - name: Include cloud-specific tasks to delete the cluster
+      ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_delete.yml"
+      when: delete

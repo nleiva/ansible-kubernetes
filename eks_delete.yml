@@ -1,0 +1,3 @@
+- name: Create EKS cluster in AWS
+  ansible.builtin.include_role:
+    name: aws_delete_eks

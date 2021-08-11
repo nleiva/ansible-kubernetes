@@ -1,0 +1,5 @@
+- name: Delete EC2 Security Group
+  amazon.aws.ec2_group:
+    name: "{{ ec2_resource_prefix }}-SG"
+    region: "{{ aws_region }}"
+    state: absent

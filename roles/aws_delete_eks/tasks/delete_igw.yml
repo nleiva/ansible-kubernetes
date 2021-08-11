@@ -1,0 +1,5 @@
+- name: Delete Internet Gateway
+  community.aws.ec2_vpc_igw:
+    region: "{{ aws_region }}"
+    vpc_id: "{{ all_vpcs.vpcs[0].vpc_id  }}"
+    state: absent

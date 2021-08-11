@@ -35,9 +35,18 @@ Follow these steps to provision a Kubernetes cluster.
 export <credential>='...'
 ```
 
-3. Run the [Playbook](main.yml) and wait a couple of minutes while your Kubernetes cluster is being provisioned. Define the cloud provider via the variable `cloud_provider` (either:; `aws`, `azure`, or `gcp`).
+3. Run the [Playbook](main.yml) and wait a couple of minutes while your Kubernetes cluster is being provisioned. Define the cloud provider via the variable `cloud_provider` (either; `aws`, `azure`, or `gcp`).
 
 ```bash
 ansible-playbook main.yml -v --extra-vars "cloud_provider=azure"
 ```
    
+## Destroying a Kubernetes Cluster
+
+Follow these steps to delete a Kubernetes cluster.
+
+1. Run the [Playbook](main.yml) with the variable `delete` set to `true`.Define the cloud provider via the variable `cloud_provider` (either; `aws`, `azure`, or `gcp`).
+
+```bash
+ansible-playbook main.yml -v --extra-vars "delete=true cloud_provider=azure"
+```

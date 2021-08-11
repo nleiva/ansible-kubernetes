@@ -1,0 +1,4 @@
+- name: Delete an IAM role with the IAM policy AmazonEKSClusterPolicy
+  community.aws.iam_role:
+     name: "{{ ec2_resource_prefix }}-role"
+     state: absent

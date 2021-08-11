@@ -1,4 +1,4 @@
 aws_region: "{{ my_region | default('us-east-1') }}"
 ec2_resource_prefix: "{{ resource_prefix }}"
 ec2_environment: "{{ ec2_resource_prefix }}"
-s3_identifier: "{{ aws_s3 | default('store') }}"
+s3_identifier: "{{ aws_s3 | default('vault') }}"

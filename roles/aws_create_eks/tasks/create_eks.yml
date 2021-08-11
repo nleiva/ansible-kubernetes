@@ -1,5 +1,5 @@
 - name: Create EKS cluster
-  community.aws.aws_eks_cluster :
+  community.aws.aws_eks_cluster:
     name: "{{ cluster_name }}"
     version: "{{ k8s_version }}"
     role_arn: "{{ eks_role.arn }}"
@@ -9,8 +9,4 @@
       - "{{ create_subnet_1.subnet.id }}"
       - "{{ create_subnet_2.subnet.id }}"
     security_groups: "{{ ec2_resource_prefix }}-SG"
-  register: eks
-
-- name: Print out EKS return info
-  debug:
-    msg: "{{ eks }}"
+  register: create_eks

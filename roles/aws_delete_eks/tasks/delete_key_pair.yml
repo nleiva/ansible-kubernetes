@@ -1,0 +1,5 @@
+- name: Delete SSH Key Pair
+  amazon.aws.ec2_key:
+    name: "{{ ec2_resource_prefix }}-key"
+    region: "{{ aws_region }}"
+    state: absent

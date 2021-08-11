@@ -1,0 +1,7 @@
+- name: Delete EKS cluster
+  community.aws.aws_eks_cluster:
+    name: "{{ cluster_name }}"
+    wait: true
+    region: "{{ aws_region }}"
+    state: absent
+  register: delete_eks
