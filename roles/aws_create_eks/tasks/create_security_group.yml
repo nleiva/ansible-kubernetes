@@ -1,3 +1,5 @@
+# Amazon EKS security group considerations
+# https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html
 - name: Create EC2 Security Group
   amazon.aws.ec2_group:
     name: "{{ ec2_resource_prefix }}-SG"

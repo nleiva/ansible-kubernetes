@@ -77,3 +77,7 @@ localhost                  : ok=20   changed=5    unreachable=0    failed=0    s
 <p align="center">
 <img src="./pictures/cluster_eks.png">
 </p>
+
+## Links
+
+- [Amazon EKS security group considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html)
