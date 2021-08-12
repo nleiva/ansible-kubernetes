@@ -1,6 +1,15 @@
+- name: Create AWS config folder
+  ansible.builtin.file:
+    path: "{{ playbook_dir }}/.aws"
+    # owner: "{{ ansible_user }}"
+    # group: "{{ ansible_user }}"
+    state: directory
+    # mode: '0750'
+
 - name: Setting AWS credentials
   ansible.builtin.blockinfile:
     path: "{{ playbook_dir }}/.aws/credentials"
+    create: true
     block: |
       [default]
       aws_access_key_id = {{ lookup('env', 'AWS_ACCESS_KEY') }}
@@ -9,6 +18,7 @@
 - name: Setting AWS config
   ansible.builtin.blockinfile:
     path: "{{ playbook_dir }}/.aws/config"
+    create: true
     block: |
       [default]
       region = {{ aws_region }}

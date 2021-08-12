@@ -1,3 +1,4 @@
+# Ignore errors as command is not idempotent
 - name: Configuring Worker Nodes
   command: >
     aws eks create-nodegroup
@@ -10,3 +11,4 @@
     --ami-type {{ aws_ami_type }}
     --node-role {{ worker_role.arn }}
     --tags Environment={{ ec2_environment }}
+  ignore_errors: yes
