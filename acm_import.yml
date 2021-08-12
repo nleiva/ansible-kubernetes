@@ -2,10 +2,6 @@
   ansible.builtin.command: aws eks update-kubeconfig --name {{ cluster_name }} --kubeconfig {{ playbook_dir }}/.kube/config --region {{ aws_region }}
   when: cloud_provider == "aws"
 
-- name: Debug Kubeconfig
-  ansible.builtin.debug:
-    msg: "{{ acm_hub_kubeconfig }}"
-
   # Role Git - https://github.com/nasx/umbrella-gitops
 - name: Add roles to Cluster
   vars:

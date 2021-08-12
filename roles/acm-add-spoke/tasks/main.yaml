@@ -5,7 +5,7 @@
     - acm.acm_hub_kubeconfig is not defined
 
 - name: Create ManagedCluster Resource
-  community.kubernetes.k8s:
+  kubernetes.core.k8s:
     definition:
       apiVersion: cluster.open-cluster-management.io/v1
       kind: ManagedCluster
@@ -25,7 +25,7 @@
     loop_var: spoke
 
 - name: Create KlusterletAddonConfig Resource
-  community.kubernetes.k8s:
+  kubernetes.core.k8s:
     kubeconfig: "{{ acm.acm_hub_kubeconfig }}"
     state: present
     definition:
@@ -57,7 +57,7 @@
     loop_var: spoke
 
 - name: Wait till the import secret is created
-  community.kubernetes.k8s_info:
+  kubernetes.core.k8s_info:
     kind: Secret
     name: "{{ spoke.name }}-import"
     namespace: "{{ spoke.name }}"
@@ -72,7 +72,7 @@
     - acm-add-spoke
 
 - name: Gather Installation Payloads
-  community.kubernetes.k8s_info:
+  kubernetes.core.k8s_info:
     api_version: v1
     kind: Secret
     kubeconfig: "{{ acm.acm_hub_kubeconfig }}"
@@ -102,7 +102,7 @@
     loop_var: payload
 
 - name: Configure Spoke Clusters - CRDs
-  community.kubernetes.k8s:
+  kubernetes.core.k8s:
     kubeconfig: "{{ item.0.kubeconfig }}"
     resource_definition: "{{ item.1.resources[0].data['crds.yaml'] | b64decode | from_yaml_all | list }}"
     state: present
@@ -111,7 +111,7 @@
     - "{{ payloads.results }}"
 
 - name: Configure Spoke Clusters - Import
-  community.kubernetes.k8s:
+  kubernetes.core.k8s:
     kubeconfig: "{{ item.0.kubeconfig }}"
     resource_definition: "{{ item.1.resources[0].data['import.yaml'] | b64decode | from_yaml_all | list }}"
     state: present
