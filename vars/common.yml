@@ -8,3 +8,5 @@ k8s_service:
   aws: eks
   azure: aks
   gcp: gke
+acm_import: false
+acm_detach: false

@@ -1,0 +1,6 @@
+acm_version: "2.2"
+acm:
+  acm_hub_kubeconfig: "~/.kube/config"
+  spokes:
+    - name: rockfort
+      kubeconfig: ""

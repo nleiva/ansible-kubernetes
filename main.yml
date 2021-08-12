@@ -6,8 +6,8 @@
     - ./vars/common.yml
 
   roles:
-      - { role: check_vars }
-      - { role: install_dependencies }
+    - { role: check_vars }
+    - { role: install_dependencies }
 
   tasks:
     - name: Include cloud variables
@@ -25,3 +25,7 @@
     - name: Include cloud-specific tasks to delete the cluster
       ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_delete.yml"
       when: delete
+
+    - name: Include cloud-specific tasks to add cluster to Red Hat Advanced Cluster Managment
+      ansible.builtin.include_tasks: "./acm_import.yml"
+      when: acm_import
