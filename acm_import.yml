@@ -12,11 +12,12 @@
 
   # Role Git - https://github.com/nasx/umbrella-gitops
 - name: Add roles to Cluster
+  ansible.builtin.include_role:
+    name: acm-add-spoke
   vars:
     acm:
       acm_hub_kubeconfig: "{{ acm_hub_kubeconfig }}"
       spokes:
         - name: "{{ cluster_name }}"
           kubeconfig: "{{ playbook_dir }}/.kube/config"
-  include_role:
-    name: acm-add-spoke
+  when: not delete

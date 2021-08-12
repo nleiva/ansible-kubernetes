@@ -1,5 +1,5 @@
 # Ignore errors as command is not idempotent
-- name: Configuring Worker Nodes
+- name: Configure Worker Nodes
   command: >
     aws eks create-nodegroup
     --cluster-name {{ cluster_name }}
@@ -12,3 +12,12 @@
     --node-role {{ worker_role.arn }}
     --tags Environment={{ ec2_environment }}
   ignore_errors: yes
+  when: not delete
+
+- name: Delete Worker Nodes
+  command: >
+    aws eks delete-nodegroup
+    --cluster-name {{ cluster_name }}
+    --nodegroup-name {{ resource_prefix }}-nodegroup
+  ignore_errors: yes
+  when: delete
