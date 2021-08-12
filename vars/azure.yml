@@ -12,8 +12,8 @@ az_vm_size: "{{ my_machine_type | default('Standard_D2_v2') }}"
 az_vm_username: nleiva
 az_environment: "{{ az_prefix }}"
 az_vm_number: "{{ node_count }}"
-az_vm_min: 1
-az_vm_max: 3
+az_vm_min: "{{ min_node_count }}"
+az_vm_max: "{{ max_node_count }}"
 # ['1.18.17', '1.18.19', '1.19.9', '1.19.11', '1.20.5', '1.20.7', '1.21.1', '1.21.2']
 az_k8s_version: "{{ my_k8s_version | default('1.20.7') }}"
 

@@ -1,0 +1,14 @@
+- name: Get Kubeconfig for EKS Clusters
+  ansible.builtin.command: aws eks update-kubeconfig --name {{ cluster_name }} --kubeconfig {{ playbook_dir }}/.kube/config --region {{ aws_region }}
+  when: cloud_provider == "aws"
+
+  # Role Git - https://github.com/nasx/umbrella-gitops
+- name: Add roles to Cluster
+  vars:
+    acm:
+      acm_hub_kubeconfig: "{{ acm_hub_kubeconfig }}"
+      spokes:
+        - name: "{{ cluster_name }}"
+          kubeconfig: "{{ playbook_dir }}/.kube/config"
+  include_role:
+    name: acm-add-spoke

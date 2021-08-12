@@ -1,4 +1,10 @@
-- name: Install Python dependencies
+- name: Install Python dependencies for {{ cloud_provider }}
   ansible.builtin.pip:
     name: "{{ python_libraries[cloud_provider] }}"
     executable: pip3
+
+- name: Install Python dependencies for ACM integration
+  ansible.builtin.pip:
+    name: "{{ python_libraries['kubernetes'] }}"
+    executable: pip3
+  when: acm_import

@@ -13,3 +13,5 @@ collections:
   - name: google.cloud
     version: 1.0.2
     #source: https://galaxy.ansible.com
+  - name: kubernetes.core
+    version: 2.1.1

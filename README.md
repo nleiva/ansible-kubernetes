@@ -40,7 +40,13 @@ export <credential>='...'
 ```bash
 ansible-playbook main.yml -v --extra-vars "cloud_provider=azure"
 ```
-   
+
+## Integrating with ACM
+
+```bash
+ansible-playbook main.yml -v --extra-vars "acm_import=true cloud_provider=aws"
+```
+
 ## Destroying a Kubernetes Cluster
 
 Follow these steps to delete a Kubernetes cluster.

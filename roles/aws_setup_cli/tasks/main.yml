@@ -1,0 +1,15 @@
+- name: Setting AWS credentials
+  ansible.builtin.blockinfile:
+    path: "{{ playbook_dir }}/.aws/credentials"
+    block: |
+      [default]
+      aws_access_key_id = {{ lookup('env', 'AWS_ACCESS_KEY') }}
+      aws_secret_access_key = {{ lookup('env', 'AWS_SECRET_KEY') }}
+
+- name: Setting AWS config
+  ansible.builtin.blockinfile:
+    path: "{{ playbook_dir }}/.aws/config"
+    block: |
+      [default]
+      region = {{ aws_region }}
+      output = {{ aws_output }}
