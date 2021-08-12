@@ -35,4 +35,5 @@
         ansible.builtin.include_tasks: "./acm_import.yml"
       when: acm_import
       environment:
-        AWS_CONFIG_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}"
+        AWS_CONFIG_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/config"
+        AWS_SHARED_CREDENTIALS_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/credentials"
