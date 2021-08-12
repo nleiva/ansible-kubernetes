@@ -1,0 +1,3 @@
+- name: Setup AWS CLI
+  ansible.builtin.include_role:
+    name: aws_setup_cli

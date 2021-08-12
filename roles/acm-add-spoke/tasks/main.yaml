@@ -23,7 +23,7 @@
   loop: "{{ acm.spokes }}"
   loop_control:
     loop_var: spoke
-  
+
 - name: Create KlusterletAddonConfig Resource
   community.kubernetes.k8s:
     kubeconfig: "{{ acm.acm_hub_kubeconfig }}"

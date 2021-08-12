@@ -10,3 +10,4 @@ k8s_service:
   gcp: gke
 acm_import: false
 acm_detach: false
+acm_hub_kubeconfig: "{{ my_acm_config | default('~/.kube/config') }}"

@@ -1,33 +1,18 @@
-- name: Check acm_hub_kubeconfig is defined as an environment variable
-  ansible.builtin.fail:
-    msg: "Kubeconfig for ACM Hub Cluster not Defined"
-  when:
-    - acm_hub_kubeconfig is not defined
-
 - name: Get Kubeconfig for EKS Clusters
-  ansible.builtin.command: aws eks update-kubeconfig --name {{ cluster_name }} --kubeconfig /tmp/{{ cluster_name }} --region {{ aws_region }}
+  ansible.builtin.command: aws eks update-kubeconfig --name {{ cluster_name }} --kubeconfig {{ playbook_dir }}/.kube/config --region {{ aws_region }}
   when: cloud_provider == "aws"
 
-- name: Debug-kubeconfig
+- name: Debug Kubeconfig
   ansible.builtin.debug:
     msg: "{{ acm_hub_kubeconfig }}"
 
-- name: Debug-ClusterName
-  ansible.builtin.debug:
-    msg: "{{cluster_name}}"
-
-  #Role Git - https://github.com/nasx/umbrella-gitops
+  # Role Git - https://github.com/nasx/umbrella-gitops
 - name: Add roles to Cluster
   vars:
     acm:
       acm_hub_kubeconfig: "{{ acm_hub_kubeconfig }}"
       spokes:
         - name: "{{ cluster_name }}"
-          kubeconfig: "/tmp/{{ cluster_name }}"
+          kubeconfig: "{{ playbook_dir }}/.kube/config"
   include_role:
     name: acm-add-spoke
-
-# - name: Delete existing Kubeconfig
-#   file:
-#     path: "/tmp/{{ cluster_name }}"
-#     state: absent
