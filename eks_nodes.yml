@@ -1,0 +1,12 @@
+- name: Configuring Worker Nodes
+  command: >
+    aws eks create-nodegroup
+    --cluster-name {{ cluster_name }}
+    --nodegroup-name {{ resource_prefix }}-nodegroup
+    --disk-size {{ node_disk_size }}
+    --subnets {{ create_subnet_1.subnet.id }} {{ create_subnet_2.subnet.id }}
+    --scaling-config minSize={{ min_node_count }},maxSize={{ max_node_count }},desiredSize={{ node_count }}
+    --instance-types {{ ec2_instance_type }}
+    --ami-type {{ aws_ami_type }}
+    --node-role {{ worker_role.arn }}
+    --tags Environment={{ ec2_environment }}

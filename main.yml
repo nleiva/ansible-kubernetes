@@ -31,6 +31,9 @@
       - name: Prepare {{ cloud_provider }} CLI
         ansible.builtin.include_tasks: "./{{ cloud_provider }}_cli.yml"
 
+      - name: Add worker nodes
+        ansible.builtin.include_tasks: "./eks_nodes.yml"
+
       - name: Include cloud-specific tasks to add cluster to RHACM
         ansible.builtin.include_tasks: "./acm_import.yml"
       when: acm_import
