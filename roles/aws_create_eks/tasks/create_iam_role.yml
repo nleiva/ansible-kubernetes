@@ -1,7 +1,18 @@
 - name: Create an IAM role with the IAM policy AmazonEKSClusterPolicy
   community.aws.iam_role:
-     name: "{{ ec2_resource_prefix }}-role"
-     assume_role_policy_document: "{{ lookup('file','eks_policy.json') }}"
+     name: "{{ ec2_resource_prefix }}-eks-role"
+     assume_role_policy_document: "{{ lookup('file','policy.json') }}"
      managed_policy:
      - 'arn:aws:iam::aws:policy/AmazonEKSClusterPolicy'
   register: eks_role
+
+- name: Create an IAM role with the IAM policy AmazonEKSWorkerNodePolicy
+  community.aws.iam_role:
+     name: "{{ ec2_resource_prefix }}-worker-role"
+     assume_role_policy_document: "{{ lookup('file','policy.json') }}"
+     managed_policy:
+     - 'arn:aws:iam::aws:policy/AmazonEC2FullAccess'
+     - 'arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy'
+     - 'arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess'
+     - 'arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly'
+  register: worker_role
