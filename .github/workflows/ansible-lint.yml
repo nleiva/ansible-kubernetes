@@ -13,9 +13,8 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  # This workflow contains a single job called "build"
-  build:
-    # The type of runner that the job will run on
+  # This workflow contains a single job called "lint"
+  lint:
     runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
@@ -27,7 +26,5 @@ jobs:
         uses: ansible/ansible-lint-action@master
         with:
           targets: "*.yml"
-          #override-deps: |
-          #  ansible==2.9.23
           # Avoid annoying 'File permissions not mentioned'  
           args: "-x 208"
