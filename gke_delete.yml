@@ -1,0 +1,3 @@
+- name: Delete GKE cluster in GCP
+  ansible.builtin.include_role:
+    name: gcp_delete_gke

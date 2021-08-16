@@ -1,0 +1,6 @@
+- name: Delete GKE cluster
+  google.cloud.gcp_container_cluster:
+    name: "{{ cluster_name }}"
+    location: "{{ gcp_zone }}"
+    state: absent
+  register: delete_gke

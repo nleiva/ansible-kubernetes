@@ -1,0 +1,5 @@
+- name: Delete GCP VPC
+  google.cloud.gcp_compute_network:
+    name: "{{ gcp_prefix }}-vpc"
+    state: absent
+  register: delete_vpc

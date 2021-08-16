@@ -1,0 +1,5 @@
+- name: Delete GKE Cluster
+  include_tasks: delete_gke.yml
+
+- name: Delete VPC
+  include_tasks: delete_vpc.yml
