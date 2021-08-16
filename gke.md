@@ -114,3 +114,13 @@ localhost                  : ok=11   changed=2    unreachable=0    failed=0    s
 <p align="center">
 <img src="./pictures/cluster_gke.png">
 </p>
+
+## GCP CLI
+
+[Authorizing with a service account](https://cloud.google.com/sdk/docs/authorizing).
+
+```bash
+gcloud auth activate-service-account [ACCOUNT] --key-file=[KEY_FILE] --project=testproject
+```
+- `ACCOUNT`: E-mail address of the service account.
+- `KEY_FILE`: Path to the Service Account JSON file.

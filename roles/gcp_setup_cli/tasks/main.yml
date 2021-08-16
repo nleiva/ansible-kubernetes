@@ -1,0 +1,33 @@
+- name: Create GCP folder
+  ansible.builtin.file:
+    path: "{{ playbook_dir }}/.gcp"
+    # owner: "{{ ansible_user }}"
+    # group: "{{ ansible_user }}"
+    state: directory
+    # mode: '0750'
+
+- name: Download Google Cloud SDK
+  ansible.builtin.get_url:
+    url: "{{ gcloud_download_url }}"
+    dest: "{{ playbook_dir }}/.gcp/google-cloud-sdk.tar.gz"
+    mode: '0644'
+
+- name: Unarchive Google Cloud SDK
+  ansible.builtin.unarchive:
+    src: "{{ playbook_dir }}/.gcp/google-cloud-sdk.tar.gz"
+    dest: "{{ playbook_dir }}/.gcp"
+    remote_src: yes
+    mode: '0755'
+
+- name: Read GCP Auth file
+  set_fact:
+    gcp_account: "{{ input.client_email }}"
+  vars:
+    path: "{{ gcp_cred_file }}"
+    input: "{{ lookup('file', path) | from_json }}"
+
+- name: Authenticate Google Cloud SDK
+  ansible.builtin.command: "{{ gcp_bin }} auth activate-service-account {{ gcp_account }} --key-file={{ lookup('env', 'GCP_SERVICE_ACCOUNT_FILE') }}"
+
+- name: Get GKE Kubeconfig
+  ansible.builtin.command: "{{ gcp_bin }} container clusters get-credentials {{ cluster_name }} --zone {{ gcp_zone }} --project {{ gcp_project }}"
