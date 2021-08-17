@@ -1,4 +1,4 @@
-Azure Create AKS
+Azure Delete AKS
 ================
 
 A brief description of the role goes here.
@@ -30,7 +30,7 @@ Including an example of how to use your role (for instance, with variables passe
 
     - hosts: localhost
       roles:
-         - { role: ansible-kubernetes.azure_create_aks }
+         - { role: ansible-kubernetes.azure_delete_aks }
 
 License
 -------

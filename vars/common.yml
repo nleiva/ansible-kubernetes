@@ -11,7 +11,4 @@ k8s_service:
   azure: aks
   gcp: gke
 acm_import: false
-# Change how we pass this config
-# Check: https://github.com/nasx/umbrella-gitops/blob/main/ansible/roles/acm-add-spoke/defaults/main.yaml
-acm_hub_kubeconfig: "{{ my_acm_config | default('~/.kube/config') }}"
 node_disk_size: "{{ my_node_disk_size | default(10) }}"

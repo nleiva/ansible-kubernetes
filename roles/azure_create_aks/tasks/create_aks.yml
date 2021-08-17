@@ -23,3 +23,21 @@
         # enable_auto_scaling: True
     tags:
       Environment: "{{ az_environment }}"
+  register: create_aks
+
+- name: Save cluster user config
+  ansible.builtin.copy:
+      content: "{{ create_aks.kube_config }}"
+      dest: "{{ playbook_dir }}/.kube/aks_user_config"
+
+- name: Get facts for one Azure Kubernetes Service
+  azure.azcollection.azure_rm_aks_info:
+    name: "{{ cluster_name }}"
+    resource_group: "{{ az_resource_group }}"
+    show_kubeconfig: admin
+  register: info_aks
+
+- name: Get admin config of AKS
+  ansible.builtin.copy:
+      content: "{{ info_aks.aks[0].kube_config  }}"
+      dest: "{{ playbook_dir }}/.kube/config"

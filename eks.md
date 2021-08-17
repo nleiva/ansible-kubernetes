@@ -80,8 +80,8 @@ localhost                  : ok=20   changed=5    unreachable=0    failed=0    s
 
 ## AWS CLI
 
-`AWS_CONFIG_FILE`: Specifies the location of the file that the AWS CLI uses to store configuration profiles. 
-`AWS_SHARED_CREDENTIALS_FILE`: Specifies the location of the file that the AWS CLI uses to store access keys.
+- `AWS_CONFIG_FILE`: Specifies the location of the file that the AWS CLI uses to store configuration profiles. 
+- `AWS_SHARED_CREDENTIALS_FILE`: Specifies the location of the file that the AWS CLI uses to store access keys.
 
 ### Kubeconfig
 

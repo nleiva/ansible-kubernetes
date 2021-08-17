@@ -1,0 +1,3 @@
+- name: Delete AKS cluster in Azure
+  ansible.builtin.include_role:
+    name: azure_delete_aks

@@ -18,14 +18,18 @@
       when:
         - cloud_provider == 'azure'
 
-    - name: Include cloud-specific tasks to create the cluster
-      ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_create.yml"
-      when: not delete
+    - name: Include ACM vars
+      ansible.builtin.include_vars: "./vars/acm.yml"
+      when: acm_import
 
     - name: Create Kubernetes config folder
       ansible.builtin.file:
         path: "{{ playbook_dir }}/.kube"
         state: directory
+      when: not delete
+
+    - name: Include cloud-specific tasks to create the cluster
+      ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_create.yml"
       when: not delete
 
     - name: Red Hat Advanced Cluster Management integration

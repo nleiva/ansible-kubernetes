@@ -1,0 +1,5 @@
+- name: Delete AKS Cluster
+  include_tasks: delete_aks.yml
+
+- name: Delete Resource Group
+  include_tasks: delete_rg.yml

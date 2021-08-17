@@ -1,0 +1,7 @@
+acm_config: "{{ playbook_dir }}/.acm/kubeconfig"
+kube_config: "{{ playbook_dir }}/.kube/config"
+acm:
+  acm_hub_kubeconfig: "{{ my_acm_config | default(acm_config) }}"
+  spokes:
+    - name: "{{ cluster_name }}"
+      kubeconfig: "{{ my_kube_config | default(kube_config) }}"

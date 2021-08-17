@@ -1,0 +1,5 @@
+- name: Delete a managed Azure Container Services (AKS) cluster
+  azure.azcollection.azure_rm_aks:
+    name: "{{ cluster_name }}"
+    resource_group: "{{ az_resource_group }}"
+    state: absent

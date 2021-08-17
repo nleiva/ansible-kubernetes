@@ -6,3 +6,4 @@ temp*
 .aws
 .kube
 .gcp
+.acm

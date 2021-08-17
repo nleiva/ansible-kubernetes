@@ -1,9 +1,3 @@
-- name: Fail if acm_hub_kubeconfig is not Defined
-  ansible.builtin.fail:
-    msg: "acm_hub_kubeconfig is not defined!"
-  when:
-    - acm.acm_hub_kubeconfig is not defined
-
 - name: Create ManagedCluster Resource
   kubernetes.core.k8s:
     definition:
