@@ -12,3 +12,4 @@ k8s_service:
   gcp: gke
 acm_import: false
 node_disk_size: "{{ my_node_disk_size | default(10) }}"
+dependencies_check: true

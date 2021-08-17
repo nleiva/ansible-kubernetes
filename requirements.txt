@@ -1,0 +1,5 @@
+-r requirements_acm_aws.txt
+-r requirements_aks.txt
+-r requirements_eks.txt
+-r requirements_gke.txt
+-r requirements_kubernetes.txt
