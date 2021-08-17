@@ -22,6 +22,12 @@
       ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_create.yml"
       when: not delete
 
+    - name: Create Kubernetes config folder
+      ansible.builtin.file:
+        path: "{{ playbook_dir }}/.kube"
+        state: directory
+      when: not delete
+
     - name: Red Hat Advanced Cluster Management integration
       block:
       - name: Prepare {{ cloud_provider }} CLI

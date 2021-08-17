@@ -1,6 +1,6 @@
 # Ignore errors as command is not idempotent
 - name: Configure Worker Nodes
-  command: >
+  ansible.builtin.command: >
     aws eks create-nodegroup
     --cluster-name {{ cluster_name }}
     --nodegroup-name {{ resource_prefix }}-nodegroup
@@ -15,7 +15,7 @@
   when: not delete
 
 - name: Delete Worker Nodes
-  command: >
+  ansible.builtin.command: >
     aws eks delete-nodegroup
     --cluster-name {{ cluster_name }}
     --nodegroup-name {{ resource_prefix }}-nodegroup

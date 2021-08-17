@@ -27,7 +27,17 @@
     input: "{{ lookup('file', path) | from_json }}"
 
 - name: Authenticate Google Cloud SDK
-  ansible.builtin.command: "{{ gcp_bin }} auth activate-service-account {{ gcp_account }} --key-file={{ lookup('env', 'GCP_SERVICE_ACCOUNT_FILE') }}"
+  ansible.builtin.command: >
+    {{ gcp_bin }} auth
+    activate-service-account {{ gcp_account }}
+    --key-file={{ lookup('env', 'GCP_SERVICE_ACCOUNT_FILE') }}
 
+# TODO: Move this out of here
 - name: Get GKE Kubeconfig
-  ansible.builtin.command: "{{ gcp_bin }} container clusters get-credentials {{ cluster_name }} --zone {{ gcp_zone }} --project {{ gcp_project }}"
+  ansible.builtin.command: >
+    {{ gcp_bin }} container clusters
+    get-credentials {{ cluster_name }}
+    --zone {{ gcp_zone }}
+    --project {{ gcp_project }}
+  environment:
+    KUBECONFIG: "{{ playbook_dir }}/.kube/config"

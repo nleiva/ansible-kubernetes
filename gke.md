@@ -120,7 +120,11 @@ localhost                  : ok=11   changed=2    unreachable=0    failed=0    s
 [Authorizing with a service account](https://cloud.google.com/sdk/docs/authorizing).
 
 ```bash
-gcloud auth activate-service-account [ACCOUNT] --key-file=[KEY_FILE] --project=testproject
+gcloud auth activate-service-account [ACCOUNT] --key-file=[KEY_FILE]
 ```
 - `ACCOUNT`: E-mail address of the service account.
 - `KEY_FILE`: Path to the Service Account JSON file.
+
+### Kubeconfig
+
+[gcloud container clusters get-credentials](https://cloud.google.com/sdk/gcloud/reference/container/clusters/get-credentials): Fetch credentials for a running cluster.

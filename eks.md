@@ -78,6 +78,15 @@ localhost                  : ok=20   changed=5    unreachable=0    failed=0    s
 <img src="./pictures/cluster_eks.png">
 </p>
 
+## AWS CLI
+
+`AWS_CONFIG_FILE`: Specifies the location of the file that the AWS CLI uses to store configuration profiles. 
+`AWS_SHARED_CREDENTIALS_FILE`: Specifies the location of the file that the AWS CLI uses to store access keys.
+
+### Kubeconfig
+
+[Create a kubeconfig for Amazon EKS](https://docs.aws.amazon.com/eks/latest/userguide/create-kubeconfig.html).
+
 ## Links
 
 - [Amazon EKS security group considerations](https://docs.aws.amazon.com/eks/latest/userguide/sec-group-reqs.html)
