@@ -33,7 +33,7 @@
     --key-file={{ lookup('env', 'GCP_SERVICE_ACCOUNT_FILE') }}
 
 # TODO: Move this out of here
-- name: Get GKE Kubeconfig
+- name: Get GKE Kubeconfig for EKS Cluster
   ansible.builtin.command: >
     {{ gcp_bin }} container clusters
     get-credentials {{ cluster_name }}

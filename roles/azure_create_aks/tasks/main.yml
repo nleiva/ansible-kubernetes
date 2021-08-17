@@ -1,5 +1,22 @@
 - name: Create Resource Group
-  include_tasks: create_rg.yml
+  ansible.builtin.include_tasks: create_rg.yml
 
 - name: Provision AKS Cluster
-  include_tasks: create_aks.yml
+  ansible.builtin.include_tasks: create_aks.yml
+
+- name: Save cluster user config
+  ansible.builtin.copy:
+      content: "{{ create_aks.kube_config }}"
+      dest: "{{ playbook_dir }}/.kube/aks_user_config"
+
+- name: Get facts for one Azure Kubernetes Service
+  azure.azcollection.azure_rm_aks_info:
+    name: "{{ cluster_name }}"
+    resource_group: "{{ az_resource_group }}"
+    show_kubeconfig: admin
+  register: info_aks
+
+- name: Get GKE Kubeconfig for AKS Cluster
+  ansible.builtin.copy:
+      content: "{{ info_aks.aks[0].kube_config  }}"
+      dest: "{{ playbook_dir }}/.kube/config"

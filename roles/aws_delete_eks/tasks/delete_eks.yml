@@ -5,3 +5,5 @@
     region: "{{ aws_region }}"
     state: absent
   register: delete_eks
+  until: delete_eks is not failed
+  retries: 5

@@ -58,6 +58,5 @@ ansible-playbook main.yml -v --extra-vars "delete=true cloud_provider=azure"
 ```
 
 ## TODO
-- [] Add retry when deleting an EKS cluster. It might take some time to delete de node group first.
-- [] Fix `acm.acm_hub_kubeconfig`. We are not passing this variable to the role.
 - [] `acm_hub_kubeconfig` should ideally not be a file in the local filesystem.
+- [] Fix ACM integration: `Wait till the import secret is created` due to `HTTP response body: b'{"kind":"Status","apiVersion":"v1","metadata":{},"status":"Failure","message":"Unauthorized","reason":"Unauthorized","code":401}`

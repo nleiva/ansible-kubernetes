@@ -23,3 +23,11 @@
       [default]
       region = {{ aws_region }}
       output = {{ aws_output }}
+
+# TODO: Move this out of here
+- name: Get Kubeconfig for EKS Cluster
+  ansible.builtin.command: >
+    aws eks update-kubeconfig
+    --name {{ cluster_name }}
+    --kubeconfig {{ playbook_dir }}/.kube/config
+    --region {{ aws_region }}

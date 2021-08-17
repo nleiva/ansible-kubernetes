@@ -13,6 +13,9 @@
     --tags Environment={{ ec2_environment }}
   ignore_errors: yes
   when: not delete
+  environment:
+    AWS_CONFIG_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/config"
+    AWS_SHARED_CREDENTIALS_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/credentials"
 
 - name: Delete Worker Nodes
   ansible.builtin.command: >
@@ -21,3 +24,7 @@
     --nodegroup-name {{ resource_prefix }}-nodegroup
   ignore_errors: yes
   when: delete
+  environment:
+    AWS_CONFIG_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/config"
+    AWS_SHARED_CREDENTIALS_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/credentials"
+

@@ -15,8 +15,7 @@
 
     - name: Include SSH Key
       ansible.builtin.include_vars: "./vars/ssh.yml"
-      when:
-        - cloud_provider == 'azure'
+      when: cloud_provider == 'azure'
 
     - name: Include ACM vars
       ansible.builtin.include_vars: "./vars/acm.yml"
@@ -32,20 +31,24 @@
       ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_create.yml"
       when: not delete
 
-    - name: Red Hat Advanced Cluster Management integration
+    - name: Get Kubeconfig from {{ cloud_provider }}
       block:
-      - name: Prepare {{ cloud_provider }} CLI
-        ansible.builtin.include_tasks: "./{{ cloud_provider }}_cli.yml"
-
-      - name: Add worker nodes
-        ansible.builtin.include_tasks: "./eks_nodes.yml"
-
-      - name: Include cloud-specific tasks to add cluster to RHACM
-        ansible.builtin.include_tasks: "./acm_import.yml"
-      when: acm_import
+        - name: Install {{ cloud_provider }} SDK if required
+          ansible.builtin.include_tasks: "./{{ cloud_provider }}_cli.yml"
+      when:
+        - cloud_provider != 'azure'
+        - not delete
       environment:
         AWS_CONFIG_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/config"
         AWS_SHARED_CREDENTIALS_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/credentials"
+
+    - name: Add/delete EKS worker nodes
+      ansible.builtin.include_tasks: "./eks_nodes.yml"
+      when: cloud_provider == 'aws'
+
+    - name: Include cloud-specific tasks to add cluster to RHACM
+      ansible.builtin.include_tasks: "./acm_import.yml"
+      when: acm_import
 
     - name: Include cloud-specific tasks to delete the cluster
       ansible.builtin.include_tasks: "./{{ k8s_service[cloud_provider] }}_delete.yml"

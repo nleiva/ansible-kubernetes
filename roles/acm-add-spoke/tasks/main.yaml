@@ -62,8 +62,6 @@
   loop: "{{ acm.spokes }}"
   loop_control:
     loop_var: spoke
-  tags:
-    - acm-add-spoke
 
 - name: Gather Installation Payloads
   kubernetes.core.k8s_info:
