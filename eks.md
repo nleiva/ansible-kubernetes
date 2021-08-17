@@ -24,11 +24,11 @@ Follow these steps to provision an EKS cluster.
 
 1. Clone this repository: `git clone https://github.com/nleiva/ansible-kubernetes.git`
 
-2. Make your [AWS account credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) (`AWS_ACCESS_KEY` and `AWS_SECRET_KEY`) available as environment variables (`export`).
+2. Make your [AWS account credentials](https://docs.aws.amazon.com/general/latest/gr/aws-sec-cred-types.html#access-keys-and-secret-access-keys) (`AWS_ACCESS_KEY_ID` and `AWS_SECRET_ACCESS_KEY`) available as environment variables (`export`).
 
 ```bash
-export AWS_ACCESS_KEY='...'
-export AWS_SECRET_KEY='...'
+export AWS_ACCESS_KEY_ID='...'
+export AWS_SECRET_ACCESS_KEY='...'
 ```
 
 3. Run the [Playbook](main.ym) and wait a couple of minutes while EKS is being provisioned.
