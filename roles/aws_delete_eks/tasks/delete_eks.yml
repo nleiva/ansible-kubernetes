@@ -6,5 +6,5 @@
     state: absent
   register: delete_eks
   until: delete_eks is not failed
-  retries: 10
-  delay: 6
+  retries: 30
+  delay: 10
