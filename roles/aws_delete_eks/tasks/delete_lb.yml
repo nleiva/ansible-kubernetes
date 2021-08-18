@@ -1,5 +1,7 @@
+# This is the only module that requires boto.
 - name: Gather information about all ELBs
   community.aws.ec2_elb_info:
+    region: "{{ aws_region }}"
   register: elb_info
 
 - ansible.builtin.debug:
