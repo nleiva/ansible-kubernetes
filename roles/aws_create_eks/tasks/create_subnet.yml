@@ -4,6 +4,7 @@
     vpc_id: "{{ create_vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_1 }}"
     az: "{{ aws_region }}a"
+    map_public: yes
     tags:
       Environment: "{{ ec2_environment }}"
       Name: "{{ ec2_resource_prefix }}-subnet-1"
@@ -17,6 +18,7 @@
     vpc_id: "{{ create_vpc.vpc.id }}"
     cidr: "{{ ec2_subnet_2 }}"
     az: "{{ aws_region }}b"
+    map_public: yes
     tags:
       Environment: "{{ ec2_environment }}"
       Name: "{{ ec2_resource_prefix }}-subnet-2"
