@@ -1,4 +1,5 @@
-# This is the only module that requires boto.
+# This LB is created automatically by EKS
+# ec2_elb_info is the only module that requires boto
 - name: Gather information about all Load Balancers
   community.aws.ec2_elb_info:
     region: "{{ aws_region }}"
