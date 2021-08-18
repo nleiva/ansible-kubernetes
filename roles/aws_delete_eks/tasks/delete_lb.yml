@@ -1,0 +1,6 @@
+- name: Gather information about all ELBs
+  community.aws.ec2_elb_info:
+  register: elb_info
+
+- ansible.builtin.debug:
+    msg: "{{ elb_info.elbs }}"

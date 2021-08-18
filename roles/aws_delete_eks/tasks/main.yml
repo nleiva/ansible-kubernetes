@@ -17,6 +17,9 @@
 - name: Delete Route Table tasks
   ansible.builtin.include_tasks: delete_rt_table.yml
 
+- name: Delete Load-Balancers tasks
+  ansible.builtin.include_tasks: delete_lb.yml
+
 - name: Delete Internet Gateway tasks
   ansible.builtin.include_tasks: delete_igw.yml
 
