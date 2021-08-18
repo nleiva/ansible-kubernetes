@@ -1,6 +1,6 @@
 - name: Delete ManagedCluster Resource
   kubernetes.core.k8s:
-    apiVersion: cluster.open-cluster-management.io/v1
+    api_version: cluster.open-cluster-management.io/v1
     name: "{{ spoke.name }}"
     kind: ManagedCluster
     kubeconfig: "{{ acm.acm_hub_kubeconfig }}"
