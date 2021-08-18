@@ -74,8 +74,16 @@ localhost                  : ok=20   changed=5    unreachable=0    failed=0    s
 
 ## AWS Console view
 
+### Cluster
+
 <p align="center">
 <img src="./pictures/cluster_eks.png">
+</p>
+
+### Worker nodes
+
+<p align="center">
+<img src="./pictures/eks_nodes.png">
 </p>
 
 ## AWS CLI
