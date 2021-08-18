@@ -8,5 +8,5 @@
   amazon.aws.ec2_elb_lb:
     name: item.name
     state: absent
-  loop: elb_info.elbs
+  loop: "{{ elb_info.elbs }}"
   when: item.vpc_id ==  all_vpcs.vpcs[0].vpc_id
