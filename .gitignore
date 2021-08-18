@@ -2,8 +2,8 @@ vars/ssh.yml
 start.sh
 temp*
 *pem
-*json
 .aws
 .kube
 .gcp
 .acm
+.outputs
