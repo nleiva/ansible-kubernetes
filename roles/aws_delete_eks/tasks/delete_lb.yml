@@ -7,6 +7,7 @@
 - name: Delete Load Balancers in VPC {{ all_vpcs.vpcs[0].vpc_id }}
   amazon.aws.ec2_elb_lb:
     name: item.name
+    region: "{{ aws_region }}"
     state: absent
   loop: "{{ elb_info.elbs }}"
   when: item.vpc_id ==  all_vpcs.vpcs[0].vpc_id
