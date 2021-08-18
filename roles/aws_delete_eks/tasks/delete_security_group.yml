@@ -10,5 +10,5 @@
     region: "{{ aws_region }}"
     group_id: "{{ item.group_id }}"
     state: absent
-    loop: "{{ all_sg.security_groups }}"
+  loop: "{{ all_sg.security_groups }}"
   when: item.group_name != "default"
