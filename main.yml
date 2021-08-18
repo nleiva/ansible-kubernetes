@@ -35,9 +35,7 @@
       block:
         - name: Install {{ cloud_provider }} SDK if required
           ansible.builtin.include_tasks: "./{{ cloud_provider }}_cli.yml"
-      when:
-        - cloud_provider != 'azure'
-        - not delete
+      when: cloud_provider != 'azure'
       environment:
         AWS_CONFIG_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/config"
         AWS_SHARED_CREDENTIALS_FILE: "{{ playbook_dir }}/.{{ cloud_provider }}/credentials"
