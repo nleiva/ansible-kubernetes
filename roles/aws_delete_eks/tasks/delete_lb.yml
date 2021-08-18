@@ -5,8 +5,8 @@
   register: elb_info
 
 - name: Delete Load Balancers in VPC {{ all_vpcs.vpcs[0].vpc_id }}
-  community.aws.elb_classic_lb:
-    name: item.name
+  amazon.aws.ec2_elb_lb:
+    name: "{{ item.name }}"
     region: "{{ aws_region }}"
     state: absent
     wait: yes
