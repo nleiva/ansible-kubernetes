@@ -12,6 +12,6 @@
     group_id: "{{ item.1.group_id }}"
     state: absent
   with_subelements:
-    - "{{ all_sg.results }}"
+    - "{{ all_sg.security_groups }}"
     - security_groups
   when: item.1.group_name != "default"
