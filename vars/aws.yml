@@ -5,3 +5,6 @@ s3_identifier: "{{ aws_s3 | default('vault') }}"
 aws_output: "{{ my_aws_output | default('json') }}"
 ec2_instance_type: "{{ instance_type | default('t3.medium') }}"
 aws_ami_type: "{{ my_ami_type | default('AL2_x86_64') }}"
+# The duration in seconds to wait for the cluster to become active. 
+# Defaults to 1200 seconds (20 minutes).
+eks_timeout: "{{ my_eks_timeout | default(1200) }}"

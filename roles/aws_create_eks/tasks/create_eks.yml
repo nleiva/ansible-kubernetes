@@ -4,6 +4,7 @@
     version: "{{ k8s_version }}"
     role_arn: "{{ eks_role.arn }}"
     wait: true
+    wait_timeout: "{{ eks_timeout }}"
     region: "{{ aws_region }}"
     subnets:
       - "{{ create_subnet_1.subnet.id }}"
