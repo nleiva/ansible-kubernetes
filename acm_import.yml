@@ -1,3 +1,13 @@
+# If running from Tower
+- name: Update ACM config file location
+  ansible.builtin.set_fact:
+    acm:
+      acm_hub_kubeconfig: "{{ filepath1 }}"
+      spokes:
+        - name: "{{ cluster_name }}"
+          kubeconfig: "{{ my_kube_config | default(kube_config) }}"
+  when: filepath1 is defined
+
 # Role Git - https://github.com/nasx/umbrella-gitops
 - name: Add roles to Cluster
   ansible.builtin.include_role:
