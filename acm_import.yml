@@ -13,3 +13,8 @@
   ansible.builtin.include_role:
     name: acm-add-spoke
   when: not delete
+
+- name: Remove roles from Cluster
+  ansible.builtin.include_role:
+    name: acm-remove-spoke
+  when: delete
