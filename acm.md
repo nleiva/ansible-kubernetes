@@ -4,7 +4,7 @@
 
 ### Python libraries
 
-As we will leverage the Kubernetes module, we need a couple of Python libraries to be present in the system.
+As we leverage the Ansible [Kubernetes Collection](https://github.com/ansible-collections/kubernetes.core), we need a couple of Python libraries to be present in the system.
 
 ```bash
 pip install --user -r requirements_kubernetes.txt
@@ -12,19 +12,19 @@ pip install --user -r requirements_kubernetes.txt
 
 ### Ansible Collections
 
-We will also need the Ansible [Kubernetes Collection](https://github.com/ansible-collections/kubernetes.core).
+We need the Ansible [Kubernetes Collection](https://github.com/ansible-collections/kubernetes.core).
 
 ```bash
 ansible-galaxy collection install -r collections/requirements.yml
 ```
 
-## Registering  new cluster with ACM
+## Creating and registering a new Kubernetes cluster with ACM
 
-Follow these steps to provision an EKS cluster.
+Follow these steps to provision an EKS cluster, for example, and have it added to [ACM](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
 
 1. Provide the filepath of ACM's Kubeconfig via the var `my_acm_config`.
 
-2. Run the [Playbook](main.ym) with the extra-var `acm_import` set to `true`, and wait a couple of minutes while your Cluster is being provisioned and added to ACM.
+2. Run the [Playbook](main.ym) with the extra-var `acm_import` set to `true`, and wait a couple of minutes while your Cluster is being provisioned and added to [ACM](https://www.redhat.com/en/technologies/management/advanced-cluster-management).
 
 ```bash
  ⇨  ansible-playbook main.yml -v --extra-vars "acm_import=true my_acm_config=~/.kube/config cloud_provider=aws"
