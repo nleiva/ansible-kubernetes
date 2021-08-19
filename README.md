@@ -41,7 +41,9 @@ export <credential>='...'
 ansible-playbook main.yml -v --extra-vars "cloud_provider=azure"
 ```
 
-## Integrating with ACM
+## Integrating with Advanced Cluster Management
+
+See [ACM](acm.md) for details.
 
 ```bash
 ansible-playbook main.yml -v --extra-vars "acm_import=true cloud_provider=aws"
