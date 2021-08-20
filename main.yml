@@ -1,4 +1,4 @@
-- name: Create Kubernetes Cluster
+- name: Create/Delete a Kubernetes Cluster
   hosts: localhost
   connection: local
   gather_facts: yes
