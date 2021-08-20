@@ -8,7 +8,7 @@ az_resource_group: "{{ az_prefix }}-rg"
 # az_virtual_machine: "{{ az_prefix }}-vm"
 # az_network_interface: "{{ az_prefix }}-netint"
 # az_ip_config: "{{ az_prefix }}-ipconf"
-az_vm_size: "{{ my_machine_type | default('Standard_D2_v2') }}"
+az_vm_size: "{{ my_machine_type | default('Standard_B2s') }}"
 az_vm_username: nleiva
 az_environment: "{{ az_prefix }}"
 az_vm_number: "{{ node_count }}"

@@ -58,3 +58,11 @@ Follow these steps to delete a Kubernetes cluster.
 ```bash
 ansible-playbook main.yml -v --extra-vars "delete=true cloud_provider=azure"
 ```
+
+## Run from an Execution Environment
+
+You need [ansible-navigator installed](https://github.com/ansible/ansible-navigator#installing). Here an example to create an AKS cluster with it.
+
+```bash
+ansible-navigator run main.yml -v --extra-vars "cloud_provider=azure"
+```

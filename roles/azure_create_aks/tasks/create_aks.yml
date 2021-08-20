@@ -15,6 +15,7 @@
       - name: "{{ az_prefix }}"
         count: "{{ az_vm_number }}"
         vm_size: "{{ az_vm_size }}"
+        mode: System
         # AgentPool 'kubernetes' has set auto scaling as enabled 
         # but is not on Virtual Machine Scale Sets, this is not allowed. 
         # Please see https://aka.ms/aks-vmss-enablement for more details

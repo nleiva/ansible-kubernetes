@@ -11,5 +11,5 @@ git clone https://github.com/nleiva/ansible-kubernetes.git
 cd ansible-kubernetes
 pip install --upgrade pip
 pip install --upgrade setuptools psutil
-pip install -r requirements.txt
+pip install -r requirements_all.txt
 deactivate

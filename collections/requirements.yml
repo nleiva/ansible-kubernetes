@@ -8,7 +8,7 @@ collections:
     #source: https://galaxy.ansible.com
   # Azure
   - name: azure.azcollection
-    version: 1.7.0
+    version: 1.8.0
     #source: https://galaxy.ansible.com
   - name: google.cloud
     version: 1.0.2
