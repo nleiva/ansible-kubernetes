@@ -9,3 +9,4 @@ temp*
 .outputs
 context
 ansible-navigator.log
+ansible-gke.json

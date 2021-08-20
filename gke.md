@@ -32,6 +32,10 @@ You need to [grant resource access](https://cloud.google.com/iam/docs/granting-c
 <img height="300" src="./pictures/iam_gke.png">
 </p>
 
+### Service Account JSON file
+
+You need to provide your Service Account JSON file, which you point out to with the environmental variable `GCP_SERVICE_ACCOUNT_FILE`.
+
 ## Enable Kubernetes Engine API
 
 [Via the console](https://console.cloud.google.com/apis/library/container.googleapis.com).

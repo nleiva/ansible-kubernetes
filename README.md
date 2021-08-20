@@ -61,8 +61,10 @@ ansible-playbook main.yml -v --extra-vars "delete=true cloud_provider=azure"
 
 ## Run from an Execution Environment
 
-You need [ansible-navigator installed](https://github.com/ansible/ansible-navigator#installing). Here an example to create an AKS cluster with it.
+You need [ansible-navigator installed](https://github.com/ansible/ansible-navigator#installing). Here is an example to create an AKS cluster with it.
 
 ```bash
 ansible-navigator run main.yml -v --extra-vars "cloud_provider=azure"
 ```
+
+**Note**: I use [podman](https://podman.io/) as my container engine (`container-engine`). You can change to another alternative in the ansible [navigator config file](ansible-navigator.yml).

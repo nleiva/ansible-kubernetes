@@ -26,6 +26,13 @@ To authenticate via service principal, provide these variables; `subscription_id
 - `AZURE_CLIENT_ID` and `AZURE_TENANT`: [Register an application with Azure AD and create a service principal](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#register-an-application-with-azure-ad-and-create-a-service-principal)
 - `AZURE_SECRET`: [Create a new application secret](https://docs.microsoft.com/en-us/azure/active-directory/develop/howto-create-service-principal-portal#option-2-create-a-new-application-secret)
 
+### SSH Public key
+
+You need to provide your SSH Public key so Azure can added to `~/.ssh/authorized_keys` of the instances it creates. In the `vars` folder of the repository, create a file (`ssh.yml`) that your public key in a single line in the variable `ssh_pubkey`. You can print your key in a line with something like `ssh-keygen -i -F /tmp/ssh.pub`  
+
+```yaml
+ssh_pubkey: 'ssh-rsa AAAAB3NzaC1y.....'
+```
 
 ## Creating a new AKS Cluster
 
